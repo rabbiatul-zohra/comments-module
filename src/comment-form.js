@@ -18,6 +18,7 @@ class CommentForm extends Component {
   handleChange(event) {
     this.setState({ text: event.target.value });
   }
+
   addComment(event) {
     event.preventDefault();
     const newComment = {
