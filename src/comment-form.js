@@ -1,12 +1,7 @@
 import React, { Component } from "react";
-import Amplify, { API } from "aws-amplify";
-import aws_exports from "./aws-exports";
+import { getApi, postApi } from "./api-service";
 
-Amplify.configure(aws_exports);
-let apiName = "CommentsCRUD";
-let path = "/Comments";
 const uuidv1 = require("uuid/v1");
-
 class CommentForm extends Component {
   constructor(props) {
     super(props);
@@ -22,14 +17,12 @@ class CommentForm extends Component {
     };
   }
 
-  componentDidMount() {
-    API.get(apiName, path).then(response => {
-      console.log(response);
-    });
-  }
-
   handleChange(event) {
     this.setState({ author: "Rabbia", text: event.target.value });
+  }
+
+  componentDidMount() {
+    getApi();
   }
 
   addComment(event) {
@@ -42,14 +35,8 @@ class CommentForm extends Component {
         text: this.state.text
       }
     };
-    API.post(apiName, path, newComment)
-      .then(response => {
-        console.log(response);
-      })
-      .catch(error => {
-        console.log(error.response);
-      });
 
+    postApi(newComment);
     const newComments = this.state.comments.concat(newComment);
     this.setState({ comments: newComments, text: "" });
   }
@@ -68,12 +55,6 @@ class CommentForm extends Component {
           </label>
           <input type="submit" value="Post Comment" />
         </form>
-        {this.state.comments.map(comment => (
-          <div>
-            <h4>{comment.author}</h4>
-            <p key={comment.text}>{comment.text}</p>
-          </div>
-        ))}
       </div>
     );
   }
