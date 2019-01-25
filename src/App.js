@@ -8,8 +8,6 @@ import aws_exports from "./aws-exports";
 Amplify.configure(aws_exports);
 const apiName = "CommentsCRUD";
 const path = "/Comments";
-
-const arr = ["test", "test2", "test3", "test4"];
 class App extends Component {
   state = {
     comments: []
@@ -18,7 +16,6 @@ class App extends Component {
   componentDidMount() {
     API.get(apiName, path).then(response => {
       this.setState({ comments: response.data });
-      console.log(response);
     });
   }
 

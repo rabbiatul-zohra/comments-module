@@ -40,7 +40,9 @@ class CommentForm extends Component {
     const newComments = this.state.comments.concat(newComment);
     this.setState({ comments: newComments, text: "" });
   }
-
+  componentDidUpdate() {
+    console.log("Test");
+  }
   render() {
     return (
       <div>
