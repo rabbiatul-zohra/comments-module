@@ -6,8 +6,10 @@ import CommentList from "./comment-list";
 import Amplify, { API } from "aws-amplify";
 import aws_exports from "./aws-exports";
 Amplify.configure(aws_exports);
+
 const apiName = "CommentsCRUD";
 const path = "/Comments";
+
 class App extends Component {
   state = {
     comments: []
