@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { postApi } from "../api-service";
-
+import "../../sass/comment-form.scss";
 const uuidv1 = require("uuid/v1");
 class CommentForm extends Component {
   constructor(props) {
@@ -39,18 +39,15 @@ class CommentForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className="sp-comment-header">
         <h3>Comments</h3>
         <span>You are signed in as Rabbia</span>
         <form onSubmit={this.addComment}>
-          <label>
-            Comment:
-            <input
-              type="text"
-              value={this.state.text}
-              onChange={this.handleChange}
-            />
-          </label>
+          <input
+            type="text"
+            value={this.state.text}
+            onChange={this.handleChange}
+          />
           <input type="submit" value="Post Comment" />
         </form>
       </div>
