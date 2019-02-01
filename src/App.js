@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import "./App.css";
-import CommentForm from "./Components/comment-form";
-import CommentList from "./Components/comment-list";
+import CommentForm from "./comment-components/comment-form";
+import CommentList from "./comment-components/comment-list";
 
 import Amplify, { API } from "aws-amplify";
 import aws_exports from "./aws-exports";

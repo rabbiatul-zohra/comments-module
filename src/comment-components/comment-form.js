@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { postApi } from "../api-service";
-import "../../sass/comment-form.scss";
 const uuidv1 = require("uuid/v1");
 class CommentForm extends Component {
   constructor(props) {
