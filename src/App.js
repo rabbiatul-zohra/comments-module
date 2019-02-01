@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
-import CommentForm from "./comment-form";
-import CommentList from "./comment-list";
+import CommentForm from "./Components/comment-form";
+import CommentList from "./Components/comment-list";
 
 import Amplify, { API } from "aws-amplify";
 import aws_exports from "./aws-exports";
@@ -18,6 +18,7 @@ class App extends Component {
       comments: []
     };
   }
+
   componentDidMount() {
     API.get(apiName, path).then(response => {
       this.setState({ comments: response.data });
@@ -27,7 +28,7 @@ class App extends Component {
   handleAddComment(comment) {
     this.setState(prevState => {
       return {
-        comments: prevState.comments.concat(comment)
+        comments: prevState.comments.concat(comment.body)
       };
     });
   }
@@ -36,7 +37,7 @@ class App extends Component {
     return (
       <div className="App">
         <CommentForm handleAddComment={this.handleAddComment} />
-        <CommentList comments={this.state.comments} />
+        <CommentList comments={this.state.comments.reverse()} />
       </div>
     );
   }
