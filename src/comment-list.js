@@ -2,6 +2,7 @@ import React from "react";
 import Comment from "./comment";
 
 const CommentList = props => {
+  console.log("PROPS", props.comments);
   return (
     <ul>
       {props.comments.map((comment, index) => (

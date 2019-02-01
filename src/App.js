@@ -11,20 +11,31 @@ const apiName = "CommentsCRUD";
 const path = "/Comments";
 
 class App extends Component {
-  state = {
-    comments: []
-  };
-
+  constructor(props) {
+    super(props);
+    this.handleAddComment = this.handleAddComment.bind(this);
+    this.state = {
+      comments: []
+    };
+  }
   componentDidMount() {
     API.get(apiName, path).then(response => {
       this.setState({ comments: response.data });
     });
   }
 
+  handleAddComment(comment) {
+    this.setState(prevState => {
+      return {
+        comments: prevState.comments.concat(comment)
+      };
+    });
+  }
+
   render() {
     return (
       <div className="App">
-        <CommentForm />
+        <CommentForm handleAddComment={this.handleAddComment} />
         <CommentList comments={this.state.comments} />
       </div>
     );

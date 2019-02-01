@@ -35,10 +35,10 @@ class CommentForm extends Component {
         text: this.state.text
       }
     };
-
     postApi(newComment);
     const newComments = this.state.comments.concat(newComment);
     this.setState({ comments: newComments, text: "" });
+    this.props.handleAddComment(newComment);
   }
 
   render() {
