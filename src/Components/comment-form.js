@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getApi, postApi } from "./api-service";
+import { postApi } from "../api-service";
 
 const uuidv1 = require("uuid/v1");
 class CommentForm extends Component {
@@ -21,10 +21,6 @@ class CommentForm extends Component {
     this.setState({ author: "Rabbia", text: event.target.value });
   }
 
-  componentDidMount() {
-    getApi();
-  }
-
   addComment(event) {
     event.preventDefault();
 
@@ -36,14 +32,16 @@ class CommentForm extends Component {
       }
     };
     postApi(newComment);
+    this.props.handleAddComment(newComment);
     const newComments = this.state.comments.concat(newComment);
     this.setState({ comments: newComments, text: "" });
-    this.props.handleAddComment(newComment);
   }
 
   render() {
     return (
       <div>
+        <h3>Comments</h3>
+        <span>You are signed in as Rabbia</span>
         <form onSubmit={this.addComment}>
           <label>
             Comment:
