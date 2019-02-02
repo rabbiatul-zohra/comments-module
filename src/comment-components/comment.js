@@ -1,4 +1,5 @@
 import React from "react";
+import Vote from "./vote-component";
 
 const Timestamp = require("react-timestamp");
 const Comment = props => {
@@ -11,6 +12,7 @@ const Comment = props => {
         includeDay
         autoUpdate
       />
+      <Vote />
     </div>
   );
 };
