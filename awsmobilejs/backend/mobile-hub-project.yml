@@ -1,62 +1,64 @@
----
-!com.amazonaws.mobilehub.v0.Project
+--- !com.amazonaws.mobilehub.v0.Project 
 features:
-  cloudlogic: !com.amazonaws.mobilehub.v0.CloudLogic
+  cloudlogic: !com.amazonaws.mobilehub.v0.CloudLogic 
     components:
-      CommentsCRUD: !com.amazonaws.mobilehub.v0.API
+      CommentsCRUD: !com.amazonaws.mobilehub.v0.API 
         attributes:
           name: CommentsCRUD
           requires-signin: false
           sdk-generation-stage-name: Development
         paths:
-          /Comments: !com.amazonaws.mobilehub.v0.Function
+          /Comments: !com.amazonaws.mobilehub.v0.Function 
             codeFilename: uploads/Comments-20190113180608.zip
-            description: "Handler for calls to resource path : /Comments/{proxy+}"
+            description: 'Handler for calls to resource path : /Comments/{proxy+}'
             enableCORS: true
             environment: {}
             handler: lambda.handler
             hashcode: lKhPXPnPdANNIhL06Q42UqAPPpl4NHEEiINdLY6+Ues=
-            memorySize: "128"
-            modified: "2019-01-13T18:08:43.928+0000"
+            memorySize: '128'
+            modified: '2019-01-13T18:08:43.928+0000'
             name: Comments
             runtime: nodejs6.10
-            timeout: "3"
+            timeout: '3'
             version: UMZLwM5dK4M1I4TJES.A4MpI9A1BlF9b
-          "/Comments/{proxy+}": !com.amazonaws.mobilehub.v0.Function
+          '/Comments/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
             codeFilename: uploads/Comments-20190113180608.zip
-            description: "Handler for calls to resource path : /Comments/{proxy+}"
+            description: 'Handler for calls to resource path : /Comments/{proxy+}'
             enableCORS: true
             environment: {}
             handler: lambda.handler
             hashcode: lKhPXPnPdANNIhL06Q42UqAPPpl4NHEEiINdLY6+Ues=
-            memorySize: "128"
-            modified: "2019-01-13T18:08:43.928+0000"
+            memorySize: '128'
+            modified: '2019-01-13T18:08:43.928+0000'
             name: Comments
             runtime: nodejs6.10
-            timeout: "3"
+            timeout: '3'
             version: MK0Xl54XSzQ2EkXXz_83bOgFog4jVPfM
-  content-delivery: !com.amazonaws.mobilehub.v0.ContentDelivery
+  content-delivery: !com.amazonaws.mobilehub.v0.ContentDelivery 
     attributes:
       enabled: true
       visibility: public-global
     components:
       release: !com.amazonaws.mobilehub.v0.Bucket {}
-  database: !com.amazonaws.mobilehub.v0.Database
+  database: !com.amazonaws.mobilehub.v0.Database 
     components:
-      database-nosql: !com.amazonaws.mobilehub.v0.NoSQLDatabase
+      database-nosql: !com.amazonaws.mobilehub.v0.NoSQLDatabase 
         tables:
-          - !com.amazonaws.mobilehub.v0.NoSQLTable
+          - !com.amazonaws.mobilehub.v0.NoSQLTable 
             attributes:
               Author: S
               ID: S
               Text: S
+              countDislikes: N
+              countLikes: N
+              time: S
             hashKeyName: ID
             hashKeyType: S
-            rangeKeyName: ""
-            rangeKeyType: ""
+            rangeKeyName: ''
+            rangeKeyType: ''
             tableName: ___DYNAMIC_PREFIX___-Comments
             tablePrivacy: public
-  mobile-analytics: !com.amazonaws.mobilehub.v0.Pinpoint
+  mobile-analytics: !com.amazonaws.mobilehub.v0.Pinpoint 
     components:
       analytics: !com.amazonaws.mobilehub.v0.PinpointAnalytics {}
   sign-in: !com.amazonaws.mobilehub.v0.SignIn {}

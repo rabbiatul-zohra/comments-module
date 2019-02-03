@@ -15,9 +15,11 @@ class Vote extends Component {
       countLikes: this.state.countLikes + 1
     });
   };
+
   countDislikes = () => {
     this.setState({ countDislikes: this.state.countDislikes + 1 });
   };
+
   render() {
     return (
       <div>
