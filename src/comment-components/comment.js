@@ -6,7 +6,12 @@ const Comment = props => {
   return (
     <div>
       <li>{props.comment.text}</li>
-      <Timestamp time={props.comment.time} format="ago" includeDay autoUpdate />
+      <Timestamp
+        time={props.comment.time}
+        format="ago"
+        includeDay
+        autoUpdate={300}
+      />
       <Vote />
     </div>
   );
