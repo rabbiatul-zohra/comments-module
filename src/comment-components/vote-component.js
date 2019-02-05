@@ -23,10 +23,10 @@ class Vote extends Component {
   render() {
     return (
       <div>
-        <span className={"counter"}>{this.state.countLikes}</span>
         <button className={"sp-comment-btn"} onClick={this.countLikes}>
           <FontAwesomeIcon icon="arrow-up" />
         </button>
+        <span className={"counter"}>{this.state.countLikes}</span>
         <button className={"sp-comment-btn"} onClick={this.countDislikes}>
           <FontAwesomeIcon icon="arrow-down" />
         </button>
