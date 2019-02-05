@@ -11,14 +11,19 @@ class CommentForm extends Component {
       comments: [
         {
           author: "",
-          text: ""
+          text: "",
+          time: new Date()
         }
       ]
     };
   }
 
   handleChange(event) {
-    this.setState({ author: "Rabbia", text: event.target.value });
+    this.setState({
+      author: "Rabbia",
+      text: event.target.value,
+      time: new Date()
+    });
   }
 
   addComment(event) {
@@ -28,9 +33,11 @@ class CommentForm extends Component {
       body: {
         ID: uuidv1(),
         author: this.state.author,
-        text: this.state.text
+        text: this.state.text,
+        time: this.state.time
       }
     };
+
     postApi(newComment);
     this.props.handleAddComment(newComment);
     const newComments = this.state.comments.concat(newComment);
