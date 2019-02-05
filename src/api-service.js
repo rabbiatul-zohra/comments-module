@@ -21,4 +21,14 @@ const postApi = newComment => {
     });
 };
 
-export { getApi, postApi };
+const updateApi = newComment => {
+  API.put(apiName, path, newComment)
+    .then(response => {
+      console.log(response);
+    })
+    .catch(error => {
+      console.log(error.response);
+    });
+};
+
+export { getApi, postApi, updateApi };
