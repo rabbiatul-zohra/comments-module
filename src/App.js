@@ -14,20 +14,25 @@ class App extends Component {
     super(props);
     this.handleAddComment = this.handleAddComment.bind(this);
     this.state = {
-      comments: []
+      comments: [],
+      commentsCount: 0
     };
   }
 
   componentDidMount() {
     API.get(apiName, path).then(response => {
-      this.setState({ comments: response.data });
+      this.setState({
+        comments: response.data
+      });
+      this.setState({ commentsCount: this.state.comments.length });
     });
   }
 
   handleAddComment(comment) {
     this.setState(prevState => {
       return {
-        comments: prevState.comments.concat(comment.body)
+        comments: prevState.comments.concat(comment.body),
+        commentsCount: prevState.comments.concat(comment.body).length
       };
     });
   }
@@ -36,6 +41,9 @@ class App extends Component {
     return (
       <div className="App">
         <CommentForm handleAddComment={this.handleAddComment} />
+        <span className="comment-count">
+          View all({this.state.commentsCount})
+        </span>
         <CommentList comments={this.state.comments.reverse()} />
       </div>
     );
