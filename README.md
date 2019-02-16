@@ -2,15 +2,17 @@
 
 (10% time work)
 
-- Uses serverless backend to store comments
+- Uses serverless back end to store comments
 
   - Amazon API Gateway
   - AWS Lambda
   - Amazon DynamoDB
 
-![alt text](./src/serverless-app-model.png)
+  Diagram below shows model of serverless app
 
-- Uses React for frontend
+  ![alt text](./src/serverless-app-model.png)
+
+- Uses React for front end
   - git clone git@github.com:rabbiatul-zohra/comments-module.git
   - npm install
   - npm start
