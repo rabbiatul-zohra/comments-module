@@ -3,7 +3,11 @@
 (10% time work)
 
 - Uses serverless backend to store comments
-  - AWS DynamoDB
+
+  - Amazon API Gateway
+  - AWS Lambda
+  - Amazon DynamoDB
+
 - Uses React for frontend
   - git clone git@github.com:rabbiatul-zohra/comments-module.git
   - npm install
